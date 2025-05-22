@@ -26,7 +26,7 @@ class CommonAuth {
    */
   async requiresCurrentUser(req) {
     await this.requiresLogin(req)
-    const userId = req.params.userId || req.params.id
+    const userId = req.params.userId || req.params.id || req.body.userId
     if (req.userId !== userId) throw new ForbiddenError()
   }
 }
